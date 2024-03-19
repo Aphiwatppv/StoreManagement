@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DataBase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{14e7317a-0158-4362-97b8-6c382297e7ab}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DataBase</RootNamespace>
+    <AssemblyName>DataBase</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="dbo\StoredProcedures\MainStoreProcedures" />
+    <Folder Include="dbo\StoredProcedures\StockHistoryTb" />
+    <Folder Include="dbo\StoredProcedures\Cars" />
+    <Folder Include="dbo\StoredProcedures\CarProductTransactionTable" />
+    <Folder Include="dbo\StoredProcedures\CreateForm" />
+    <Folder Include="dbo\StoredProcedures\CarProductSummaryTransaction" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\MainStoreTb.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spAddNewProduct.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spGetAllProducts.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spIncreaseStockAmount.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spDecreaseStockAmount.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spGetTotalProductCount.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spSearchProductById.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spSearchProductByName.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spCalculateTotalCostPrice.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spCalculateTotalCostPriceByProductId.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spCalculateTotalPrice.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spCalculateTotalPriceByProductId.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spGenerateNewProductId.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spRemoveProduct.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spEditProduct.sql" />
+    <Build Include="dbo\Tables\StockHistoryTb.sql" />
+    <Build Include="dbo\StoredProcedures\StockHistoryTb\spInsertStockHistory.sql" />
+    <Build Include="dbo\StoredProcedures\StockHistoryTb\uspGetMaxHistoryId.sql" />
+    <Build Include="dbo\StoredProcedures\StockHistoryTb\spGetStockHistory.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spGetProductUnitTypes.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spGetRemainingStock.sql" />
+    <Build Include="dbo\StoredProcedures\StockHistoryTb\SearchStockHistoryByProductNameAndDate.sql" />
+    <Build Include="dbo\Tables\Cars.sql" />
+    <Build Include="dbo\StoredProcedures\Cars\spEnrollCar.sql" />
+    <Build Include="dbo\StoredProcedures\Cars\spEditCarDetails.sql" />
+    <Build Include="dbo\StoredProcedures\Cars\spDeleteCar.sql" />
+    <Build Include="dbo\StoredProcedures\Cars\spGetAllCarDetails.sql" />
+    <Build Include="dbo\Tables\CarProductTransactions.sql" />
+    <Build Include="dbo\StoredProcedures\MainStoreProcedures\spGetProductDetails.sql" />
+    <Build Include="dbo\StoredProcedures\CreateForm\spCreateEmptyCarProductTransactionForm.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductTransactionTable\spSaveCarProductTransaction.sql" />
+    <Build Include="dbo\Tables\CarTransactionSummary.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductSummaryTransaction\spGenerateCarTransactionSummary.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductSummaryTransaction\spGetAllCarTransactionSummary.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductSummaryTransaction\spGetTransactionDataById.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductTransactionTable\spUpdateCarProductTransaction.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductSummaryTransaction\spEditCarTransactionSummary.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductSummaryTransaction\spUpdateCarTransactionSummary.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductTransactionTable\spUpdateMainStoreStock.sql" />
+    <Build Include="dbo\StoredProcedures\CarProductSummaryTransaction\spSearchCarTransactions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MainStoreDataBaseManagement.publish.publish.xml" />
+  </ItemGroup>
+</Project>
